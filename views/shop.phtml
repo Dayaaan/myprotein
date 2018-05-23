@@ -1,31 +1,35 @@
-<h1>Bienvenue dans la boutique myProtein</h1>
+<main class="container">
+    <h1>Bienvenue dans la boutique myProtein</h1>
 
-<div class="form">
-    <form class="form-group" method="GET" action="../public/search.php">
-        
-        <input type="text" name="search" class="form-control" placeholder="recherchez un produit">
-        <input type="submit" class="form-control">
-    </form>
-</div>
-<div class="container-product">
-    <div class="product">
-        <ul>
-            <?php 
-            include '../services/myproteinService.php';
-            $reponse = $bdd->query('SELECT * FROM products');
-            while ($product = $reponse->fetch()): ?>
-            <li>
-                <img src="<?= $product['image'] ?>">
-                <h3><?= $product['name'] ?></h3>
-                <p>Prix: <?= $product['price'] ?>€</p>
-                <?php if ($product['is_active'] = 1): ?>
-                    DISPONIBLE EN <span style='color:green;'>STOCK</span>;
-                <?php endif ?>
-                <p>Quantité : <?= $product['quantity'] ?></p>
-                <p><?= $product['description'] ?></p>
-            </li>
-            <?php endwhile ?>
-        </ul>
+    <div class="form">
+        <form class="form-group" method="GET" action="../public/search.php">
+            
+            <input type="text" name="search" class="form-control" placeholder="recherchez un produit"><br>
+            <input type="submit" class="btn btn-primary">
+        </form>
     </div>
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="container-product">
+                <?php 
+                include '../services/myproteinService.php';
+                $reponse = $bdd->query('SELECT * FROM products');
+                while ($product = $reponse->fetch()): ?>
+                <div class="product">
+                     <ul>
+                        <li>
+                            <img src="<?= $product['image'] ?>">
+                            <h3><?= $product['name'] ?></h3>
+                            <p>Prix: <?= $product['price'] ?>€</p>
+                            <?php if ($product['is_active'] = 1): ?>
+                                DISPONIBLE EN <span style='color:green;'>STOCK</span>;
+                            <?php endif ?>
+                            <p>Quantité : <?= $product['quantity'] ?></p>
+                            <p><?= $product['description'] ?></p>
+                            <a href="#" class="btn btn-primary">Ajoutez au panier</a>
+                        </li>
+                    </ul>
+                </div>  
+                <?php endwhile ?>
+            </ul>
+        </div>
+    </div>
+</main>

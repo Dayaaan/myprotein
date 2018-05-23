@@ -2,7 +2,9 @@
 include '../services/myproteinService.php';
 include '../views/header.phtml';
 
-
+?>
+<main class="container">
+<?php 
 if (isset($_GET["search"])) {
 	 $word = $_GET['search'];
 	 $requete = $bdd->prepare("SELECT * FROM products WHERE name = ? LIKE '%$word%' OR description LIKE '%$word%'");
@@ -22,10 +24,12 @@ if (isset($_GET["search"])) {
 		<p>Quantité : <?= $product['quantity'] ?></p>
 		<p><?= $product['description'] ?></p>
 		</div>
-	<?php endwhile ?>
+	<?php endwhile; ?>
 <?php
  };
 ?>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</main>
 <?php
 include '../views/footer.phtml';

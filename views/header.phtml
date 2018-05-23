@@ -23,29 +23,30 @@
     <header>
         <?php 
 
-        if (isset($_SESSION['id']) AND isset($_SESSION['firstname'])): ?>
-        <div class="bonjour">
-            <p style="color:white;">
-                <?= 'Bonjour ' . $_SESSION['firstname']; ?>
-                <a href="compte.php" class="display">Mon compte</a> / 
-                <a href="deconnection.php" class="display">Deconnection</a>
-            </p>
-        </div>
-        <style>
-            .hidden {
-                display: none;
-            }
-            .display {
-                padding-left: 2rem;
-            }
-        </style>
-        <?php else : ?>
-            <style>
-            .hidden {
-                display: inline-block;
-            }
-            </style>
-        <?php endif ?>
+        if (isset($_SESSION['id'])): ?>
+            <div class="bonjour">
+                <p style="color:white;">
+                    <?= 'Bonjour ' . $_SESSION['firstname']; ?>
+                    <a href="compte.php" class="display">Mon compte</a> / 
+                    <a href="deconnection.php" class="display">Deconnection</a>
+                </p>
+                <style>
+                    .hidden {
+                        display: none;
+                    }
+                    .display {
+                        padding-left: 2rem;
+                    }
+                </style>
+            </div>
+            <?php endif ?>
+            <?php if(empty($_SESSION["id"])): ?>
+                    <style>
+                    .hidden {
+                        display: block!IMPORTANT;
+                    }
+                    </style>
+                <?php endif ?>
 
 
 

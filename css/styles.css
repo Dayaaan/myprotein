@@ -42,8 +42,9 @@ footer {
 .container {
     text-align: center;
 }
-img {
-    width: 35%;
+.product img {
+    height: 15rem;
+    border-radius: 10px;
 }
 .login {
     width: 20%;
@@ -57,4 +58,23 @@ h1 {
     position: absolute;
     right: 10rem;
     top: 5rem;
+}
+.container-product {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin-top: 8rem;
+}
+.img-product {
+    float: left;
+    width: 25%;
+    margin-top: 5rem;
+    margin-right: 5rem;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+}
+.displayProduct {
+    margin-top: 6rem;
+    text-align: justify;
 }

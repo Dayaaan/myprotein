@@ -23,6 +23,7 @@ if (isset($_GET["search"])) {
 		<?php endif ?>
 		<p>Quantité : <?= $product['quantity'] ?></p>
 		<p><?= $product['description'] ?></p>
+		<p><?= $product['description2'] ?></p>
 		</div>
 	<?php endwhile; ?>
 <?php

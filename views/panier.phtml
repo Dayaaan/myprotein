@@ -1,0 +1,44 @@
+<main class="">
+    <h1>Bienvenue dans la boutique crossFITNESS</h1>
+
+    <h2>Mon panier</h2>
+
+    <div class="cart-product">
+           
+           <img src=""> 
+           <h3>Titre</h3>
+           <p class="price">prix</p> 
+           <label>Quantité</label>
+           <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+           </select>
+           <p>description</p> 
+
+           <a href="panier.php">Voir le panier</a> (<?php print $panier_count; ?> produits)<br><br><br>
+ 
+        <a href="index.php?ajouter=222">Ajouter produit 222</a><br>
+        <a href="index.php?ajouter=333">Ajouter produit 333</a><br>
+        <a href="index.php?ajouter=444">Ajouter produit 444</a><br>
+
+<?php 
+        $ids = $_SESSION['panier'];
+
+
+
+
+        $products = [];
+
+        foreach ($ids as $id) {
+          $product = getProductById($id);
+
+          $products[] = $product;
+        }
+?>
+        
+    </div>
+<br><br><br><br><br><br><br><br>
+</main>

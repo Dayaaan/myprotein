@@ -1,13 +1,15 @@
-<main class="">
-    <h1>Bienvenue dans la boutique crossFITNESS</h1>
+<?php 
+session_start();
+include '../services/tools.php';
+include '../services/myproteinService.php';
+include '../views/header.phtml';
 
-    <div class="form">
-        <form class="form-group" method="GET" action="../public/search.php">
-            
-            <input type="text" name="search" class="form-control" placeholder="recherchez un produit"><br>
-        </form>
-    </div>
-    <div class="container-product">
+pre($_SESSION);
+exit;
+
+?>
+
+<div class="container-product">
                 <?php 
                 include '../services/myproteinService.php';
                 $reponse = $bdd->query('SELECT * FROM products');
@@ -22,7 +24,6 @@
                                 DISPONIBLE EN <span style='color:green;'>STOCK</span>;
                             <?php endif ?>
                             <p style="color:green;">Quantité : <?= $product['quantity'] ?></p>
-                            <p><?= $product['description'] ?></p>
                             <a href="../public/product.php?id=<?= $product['id'] ?>" class="btn btn-primary">Voir la fiche du produit</a>
                         </li>
                     </ul>
@@ -31,4 +32,10 @@
             </ul>
         </div>
     </div>
+
+ 
+
+ <br><br><br><br><br><br><br><br>
 </main>
+<?php
+include '../views/footer.phtml';

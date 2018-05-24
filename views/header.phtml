@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="../plugin/flexslider.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="../plugin/jquery.flexslider.js"></script>
@@ -27,7 +28,20 @@
             <div class="bonjour">
                 <p style="color:white;">
                     <?= 'Bonjour ' . $_SESSION['firstname']; ?>
-                    <a href="compte.php" class="display">Mon compte</a> / 
+                    <a href="panier.php" class="display">Mon panier
+                    <span style="color:white;"> 
+                        ( 
+                        <?php  
+                            if (isset($_SESSION['panier']) == false) {
+                                 $_SESSION['panier'] = [];       
+                                }
+                            $c = count($_SESSION["panier"]); 
+                        ?> 
+                            <?= $c; ?> 
+                        ) 
+                    </span> 
+                    <i class="fas fa-shopping-cart"></i> </a> /
+                    <a href="compte.php" class="display">Mon compte </a> / 
                     <a href="deconnection.php" class="display">Deconnection</a>
                 </p>
                 <style>
@@ -56,7 +70,7 @@
                 <li><a href="shop.php">Boutique</a></li>
                 <li><a href="contact.php">Nous contacter</a></li>
                 <li><a href="login.php" class="hidden">Login</a></li>
-                <li><a href="signIn.php" class="hidden">S'enregistrer</a></li>
+                <li><a href="signUp.php" class="hidden">S'enregistrer</a></li>
             </ul>
         </nav>
         

@@ -25,7 +25,7 @@ if (isset($_GET["id"])) {
         <p style="color:green;">Quantité : <?= $product['quantity'] ?></p>
         <p><?= $product['description'] ?></p>
         <p><?= $product['description2'] ?></p>
-        <a href="ajoutPanier.php?id=<?= $product['id'] ?>" class="btn btn-primary">Ajoutez au panier</a>
+        <a href="ajoutPanier.php?add=<?= $id ?>" class="btn btn-primary">Ajoutez au panier</a>
         </div>
     <?php endwhile; ?>
 <?php
@@ -37,3 +37,4 @@ if (isset($_GET["id"])) {
 </main>
 <?php
 include '../views/footer.phtml';
+

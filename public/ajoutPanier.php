@@ -3,8 +3,17 @@ session_start();
 include '../services/tools.php';
 include '../services/myproteinService.php';
 
-$id = $_GET['id'];
-$_SESSION["panier"][] = $id;
+if (isset($_GET["add"])) {
+
+	$id = $_GET["add"];
+
+	if(!isset($_SESSION['panier'])) {
+		$_SESSION['panier'] = array(); 
+	}
+	array_push($_SESSION["panier"], $id);
+	
+	header("Location:panier.php");
+
+}
 
 
-pre($_SESSION);
